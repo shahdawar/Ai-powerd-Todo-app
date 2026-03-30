@@ -48,6 +48,7 @@ const elements = {
   taskPriority: document.getElementById("taskPriority"),
   demoAdminBtn: document.getElementById("demoAdminBtn"),
   logoutBtn: document.getElementById("logoutBtn"),
+  footerCopy: document.getElementById("footerCopy"),
   welcomeText: document.getElementById("welcomeText"),
   roleText: document.getElementById("roleText"),
   totalCount: document.getElementById("totalCount"),
@@ -158,6 +159,11 @@ function renderAuthState() {
 
   elements.authView.classList.toggle("hidden", isLoggedIn);
   elements.dashboardView.classList.toggle("hidden", !isLoggedIn);
+  elements.logoutBtn.classList.toggle("hidden", !isLoggedIn);
+
+  elements.footerCopy.innerHTML = isLoggedIn
+    ? `Active session: <strong>${user.name}</strong> (${user.role})`
+    : 'Demo admin: <strong>admin@todoapp.com</strong> / <strong>Admin@123</strong>';
 
   if (!isLoggedIn) {
     return;

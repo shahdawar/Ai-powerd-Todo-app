@@ -10,38 +10,23 @@
 </head>
 
 <body>
-  <div class="page-shell">
-    <section class="hero-panel" aria-labelledby="heroTitle">
-      <p class="eyebrow">In-memory productivity workspace</p>
-      <h1 id="heroTitle">Plan work clearly with a safer frontend-only todo app.</h1>
-      <p class="hero-copy">
-        Create an account, sign in, add tasks, mark them complete, and switch between all, pending, and completed views.
-        This app keeps data only in memory, so users, sessions, and tasks reset when the page reloads.
-      </p>
-
-      <div class="info-card">
-        <h2>What is included</h2>
-        <ul class="feature-list">
-          <li>User signup, login, and logout</li>
-          <li>Admin and user roles</li>
-          <li>Add, complete, filter, and delete tasks</li>
-          <li>Responsive layout with smooth scrolling</li>
-        </ul>
-        <p class="hint">
-          Demo mode includes an internal admin account. Use the "Load demo admin" button on the login form to test it.
-        </p>
+  <div class="layout-frame">
+    <header class="frame-block top-bar">
+      <div class="top-copy">
+        <p class="eyebrow">Todo application</p>
+        <h1 id="heroTitle">Rounded dashboard layout</h1>
       </div>
-    </section>
-
-    <main class="app-panel">
       <section class="message-region" aria-live="polite" aria-atomic="true">
         <div id="appMessage" class="message" hidden></div>
       </section>
+    </header>
 
-      <section id="authView" class="card auth-card" aria-labelledby="authHeading">
+    <section id="authView" class="workspace-layout" aria-labelledby="authHeading">
+      <aside class="frame-block side-panel auth-panel">
         <div class="auth-header">
           <p class="eyebrow">Access control</p>
           <h2 id="authHeading">Authenticate to continue</h2>
+          <p class="subtle-text">Use the left panel to sign in or create an account for this browser session.</p>
         </div>
 
         <div class="segmented-control" aria-label="Authentication mode">
@@ -49,6 +34,18 @@
           <button id="signupTabBtn" class="segment-btn" data-auth-tab="signup" aria-pressed="false" type="button">Signup</button>
         </div>
 
+        <div class="info-card">
+          <h3>Included</h3>
+          <ul class="feature-list">
+            <li>Signup and login</li>
+            <li>Admin and user roles</li>
+            <li>Task add, complete, and delete</li>
+            <li>All, pending, and completed filters</li>
+          </ul>
+        </div>
+      </aside>
+
+      <main class="frame-block main-panel auth-main-panel">
         <form id="loginForm" class="auth-form active" novalidate>
           <div class="section-heading">
             <h3>Welcome back</h3>
@@ -99,17 +96,16 @@
 
           <button class="primary-btn" type="submit">Signup</button>
         </form>
-      </section>
+      </main>
+    </section>
 
-      <section id="dashboardView" class="dashboard hidden" aria-labelledby="dashboardHeading">
-        <div class="card dashboard-header">
-          <div>
-            <p class="eyebrow">Todo dashboard</p>
-            <h2 id="dashboardHeading">Workspace</h2>
-            <p id="welcomeText" class="subtle-text"></p>
-            <p id="roleText" class="subtle-text"></p>
-          </div>
-          <button id="logoutBtn" class="ghost-btn" type="button">Logout</button>
+    <section id="dashboardView" class="workspace-layout dashboard hidden" aria-labelledby="dashboardHeading">
+      <aside class="frame-block side-panel stats-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Todo dashboard</p>
+          <h2 id="dashboardHeading">Workspace</h2>
+          <p id="welcomeText" class="subtle-text"></p>
+          <p id="roleText" class="subtle-text"></p>
         </div>
 
         <div class="stats-grid" aria-label="Task statistics">
@@ -126,8 +122,10 @@
             <strong id="completedCount">0</strong>
           </article>
         </div>
+      </aside>
 
-        <section class="card composer-card" aria-labelledby="taskComposerHeading">
+      <main class="frame-block main-panel board-panel">
+        <section class="composer-card" aria-labelledby="taskComposerHeading">
           <div class="section-heading">
             <h3 id="taskComposerHeading">Add a task</h3>
             <p>Write a clear task title and choose a priority.</p>
@@ -149,7 +147,7 @@
           </form>
         </section>
 
-        <section class="card board-card" aria-labelledby="taskBoardHeading">
+        <section class="board-card" aria-labelledby="taskBoardHeading">
           <div class="board-toolbar">
             <div class="section-heading">
               <h3 id="taskBoardHeading">Task board</h3>
@@ -168,8 +166,13 @@
             <p>Add a task or switch the active filter to view work items.</p>
           </div>
         </section>
-      </section>
-    </main>
+      </main>
+    </section>
+
+    <footer class="frame-block bottom-bar">
+      <p id="footerCopy" class="footer-copy">Demo admin: <strong>admin@todoapp.com</strong> / <strong>Admin@123</strong></p>
+      <button id="logoutBtn" class="ghost-btn" type="button">Logout</button>
+    </footer>
   </div>
 
   <script src="index.js"></script>
